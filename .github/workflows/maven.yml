@@ -37,8 +37,7 @@ jobs:
 
     - name: run behave file
       run: |
-            cd CucumberJava/src/test/resources/Features/
-            behave -i GoogleSearch.feature
+            cd CucumberJava/src/test/java/StepDefinitions/TestRunner.java
 
 
     # - name: run behave file
