@@ -4,19 +4,35 @@
 name: Run-Tests
 on:
   # push:
-  #   branches: [ main ]
+  #   branches: [ main, dev ]
   # pull_request:
-  #   branches: [ main ]
+  #   branches: [ main, dev ]
   workflow_dispatch:
-    # inputs:
-    #   env_name:
-    #     description: ' Environment to test(dev3, qa) '
-    #     required: true
-    #     default: 'dev3'
+    inputs:
+      environment:
+        description: ' env we wanted to run '
+        type: choice
+        options:
+           - main
+           - dev
+           - stag
+           - qa
+           - prod
+      script_name:
+        description: ' test script wanted to execute '
+        required: true
+        type: choice
+        default: 'loginPage'
+        options:
+           - loginPage
+           - googleSearch
+           - resultsPage
+           - addCart
       
 jobs:
   build:
     runs-on: windows
+    # environment: ${{ github.event.inputs.environment }}
     # container:
     #   image: ghcr.io/strongarm-tech/satbuildmachine:latest
     #   credentials:
@@ -24,7 +40,8 @@ jobs:
     #       password: ${{ secrets.GITTOKEN }}
           
     steps:
-    - uses: actions/checkout@v3
+      - name: Checkout repo
+        uses: actions/checkout@v3
 
     # - name: Install dependencies
     #   run: |
@@ -35,9 +52,13 @@ jobs:
     #     pip install chromedriver
     #     pip install webdriver-manager
 
-    - name: run behave file
-      run: |
-            cd CucumberJava/src/test/java/StepDefinitions/TestRunner.java
+      - name: run behave file
+        env: 
+          EMAIL_CRED : ${{ secrets.EMAIL_CRED }}
+          PASS_CRED : ${{ secrets.PASS_CRED }}
+        run: |
+            cd CucumberJava/src/test/java/StepDefinitions
+            behave -i ${{ github.event.inputs.script_name }}.feature
 
 
     # - name: run behave file
