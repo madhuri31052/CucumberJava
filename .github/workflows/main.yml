@@ -24,8 +24,8 @@ on:
         type: choice
         default: 'loginPage'
         options:
-           - loginPage
-           - googleSearch
+           - login
+           - GoogleSearch
            - resultsPage
            - addCart
       
@@ -36,8 +36,8 @@ jobs:
     # container:
     #   image: ghcr.io/strongarm-tech/satbuildmachine:latest
     #   credentials:
-    #       username: ${{ github.actor }}
-    #       password: ${{ secrets.GITTOKEN }}
+          # username: ${{ github.actor }}
+          # password: ${{ secrets.GITTOKEN }}
        
     steps:
       - name: Checkout code
@@ -63,7 +63,7 @@ jobs:
           username : ${{ secrets.USERNAME }}
           password : ${{ secrets.PASSWORD }}
         run: |
-            ./gradlew cucumber
+            behave -i ${{ github.event.inputs.script_name }}.feature
 
 
     # - name: run behave file
