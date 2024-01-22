@@ -18,11 +18,11 @@
       <version>5.10.1</version>
 	  </dependency>
       
-      <!-- <dependency>
+      <dependency>
       <groupId>io.cucumber</groupId>
       <artifactId>cucumber-junit</artifactId>
       <version>7.15.0</version>
-	  </dependency> -->
+	  </dependency>
 	  
 	  <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
