@@ -69,7 +69,7 @@ jobs:
           USERNAME : ${{ secrets.USERNAME }}
           PASSWORD : ${{ secrets.PASSWORD }}
         run: |
-          ./mvnw clean test
+          mvn clean test
 
 
     # - name: run behave file
