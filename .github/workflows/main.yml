@@ -63,7 +63,7 @@ jobs:
           username : ${{ secrets.USERNAME }}
           password : ${{ secrets.PASSWORD }}
         run: |
-            behave -i ${{ github.event.inputs.script_name }}.feature
+          cucumber src/test/resources/Features/${{ github.event.inputs.script_name }}.feature
 
 
     # - name: run behave file
