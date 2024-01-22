@@ -3,7 +3,8 @@
   <groupId>CucumberJava</groupId>
   <artifactId>CucumberJava</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  
+
+  <dependencyManagement>
   <dependencies>
 	  
 	  <dependency>
@@ -56,13 +57,15 @@
 	   
   </dependencies>
 
+  </dependencyManagement>
+
     <build>
         <plugins>
             <!-- Surefire Plugin for running tests -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.19</version>
+                <version>3.0.0-M5</version>
             </plugin>
 
             <!-- Compiler Plugin for Java version configuration -->
