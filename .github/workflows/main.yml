@@ -64,6 +64,13 @@ jobs:
     #     pip install chromedriver
     #     pip install webdriver-manager
 
+      - name: Setup Chromedriver
+        run: |
+          CHROMEDRIVER_VERSION=$(curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE)
+          wget "https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip" -O chromedriver.zip
+          unzip chromedriver.zip -d /usr/local/bin
+          chmod +x /usr/local/bin/chromedriver
+
       - name: run behave file
         env: 
           USERNAME : ${{ secrets.USERNAME }}
