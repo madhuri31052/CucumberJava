@@ -81,7 +81,8 @@ public class GoogleSearchSteps {
     private void initializeWebDriver() throws InterruptedException {
         if (driver == null) {
             String projectPath = System.getProperty("user.dir");
-            System.setProperty("webdriver.chrome.driver", projectPath + "/src/test/resources/drivers/chromedriver");
+            System.setProperty(webdriver.Chrome(ChromeDriverManager().install() ));
+            
             driver = new ChromeDriver();
             driver.manage().window().maximize();
             Thread.sleep(2000);
