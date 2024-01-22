@@ -18,11 +18,11 @@
       <version>5.10.1</version>
 	  </dependency>
       
-      <dependency>
+      <!-- <dependency>
       <groupId>io.cucumber</groupId>
       <artifactId>cucumber-junit</artifactId>
       <version>7.15.0</version>
-	  </dependency>
+	  </dependency> -->
 	  
 	  <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
@@ -30,7 +30,7 @@
       <version>4.16.1</version>
 	  </dependency>
 
-    <dependency>
+    <!-- <dependency>
       <groupId>org.junit.platform</groupId>
       <artifactId>junit-platform-launcher</artifactId>
       <version>1.10.1</version>
@@ -52,13 +52,11 @@
       <groupId>org.junit.platform</groupId>
       <artifactId>junit-platform-commons</artifactId>
       <version>1.10.1</version>
-    </dependency>
+    </dependency> -->
 	   
   </dependencies>
 
-</project>
-
-    <!-- <build>
+    <build>
         <plugins>
             <!-- Surefire Plugin for running tests -->
             <plugin>
@@ -78,5 +76,6 @@
                 </configuration>
             </plugin>
         </plugins>
-    </build> -->
+    </build>
   
+</project>
