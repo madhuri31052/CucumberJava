@@ -56,7 +56,7 @@
 	   
   </dependencies>
 
-    <build>
+    <!-- <build>
         <plugins>
             <!-- Surefire Plugin for running tests -->
             <plugin>
@@ -76,6 +76,6 @@
                 </configuration>
             </plugin>
         </plugins>
-    </build>
+    </build> -->
   
 </project>
