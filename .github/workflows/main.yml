@@ -3,8 +3,8 @@
 
 name: Run CucumberJava Tests
 on:
-  # push:
-  #   branches: [ main, dev ]
+  push:
+    branches: [ main ]
   # pull_request:
   #   branches: [ main, dev ]
   workflow_dispatch:
@@ -49,11 +49,11 @@ jobs:
           distribution: 'adopt'
           java-version: '11' 
 
-      - name: Install dependencies
-        run: |
-            sudo apt-get update
-            sudo apt-get install -y maven
-            mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+      # - name: Install dependencies
+      #   run: |
+      #       sudo apt-get update
+      #       sudo apt-get install -y maven
+      #       mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
     # - name: Install dependencies
     #   run: |
@@ -69,7 +69,7 @@ jobs:
           USERNAME : ${{ secrets.USERNAME }}
           PASSWORD : ${{ secrets.PASSWORD }}
         run: |
-          mvn test -Dcucumber.options="src/test/resources/Features/${{ github.event.inputs.script_name }}.feature"
+          ./mvnw clean test
 
 
     # - name: run behave file
