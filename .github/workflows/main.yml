@@ -49,6 +49,12 @@ jobs:
           distribution: 'adopt'
           java-version: '11' 
 
+      - name: Install dependencies
+        run: |
+            sudo apt-get update
+            sudo apt-get install -y maven
+            mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+
     # - name: Install dependencies
     #   run: |
     #     pip install -U urllib3 requests
@@ -60,10 +66,10 @@ jobs:
 
       - name: run behave file
         env: 
-          username : ${{ secrets.USERNAME }}
-          password : ${{ secrets.PASSWORD }}
+          USERNAME : ${{ secrets.USERNAME }}
+          PASSWORD : ${{ secrets.PASSWORD }}
         run: |
-          cucumber src/test/resources/Features/${{ github.event.inputs.script_name }}.feature
+          mvn test -Dcucumber.options="src/test/resources/Features/${{ github.event.inputs.script_name }}.feature"
 
 
     # - name: run behave file

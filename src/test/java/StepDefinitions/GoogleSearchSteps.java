@@ -12,8 +12,8 @@ import io.cucumber.java.en.*;
 public class GoogleSearchSteps {
 
     WebDriver driver = null;
-    public String user;
-    public String pass;
+    public String username;
+    public String password;
 
     @Given("User is on instagram page")
     public void user_is_on_instagram_page() throws InterruptedException {
@@ -24,11 +24,11 @@ public class GoogleSearchSteps {
 
     @When("User enters username and password")
     public void user_enters_username_password() throws InterruptedException {
-        user = System.getenv("username");
-        pass = System.getenv("password");
-        driver.findElement(By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/main[1]/div[1]/div[1]/div[1]/div[2]/form[1]/div[1]/div[1]/div[1]/label[1]/input[1]")).sendKeys(user);
+        username = System.getenv("USERNAME");
+        password = System.getenv("PASSWORD");
+        driver.findElement(By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/main[1]/div[1]/div[1]/div[1]/div[2]/form[1]/div[1]/div[1]/div[1]/label[1]/input[1]")).sendKeys(username);
         Thread.sleep(5000);
-        driver.findElement(By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/main[1]/div[1]/div[1]/div[1]/div[2]/form[1]/div[1]/div[2]/div[1]/label[1]/input[1]")).sendKeys(pass);
+        driver.findElement(By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/main[1]/div[1]/div[1]/div[1]/div[2]/form[1]/div[1]/div[2]/div[1]/label[1]/input[1]")).sendKeys(password);
         Thread.sleep(5000);
     }
 
