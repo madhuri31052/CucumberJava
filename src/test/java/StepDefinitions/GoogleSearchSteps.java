@@ -6,6 +6,7 @@ import org.openqa.selenium.Keys;
 //import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import io.cucumber.java.After;
 import io.cucumber.java.en.*;
 
@@ -85,7 +86,7 @@ public class GoogleSearchSteps {
             //driver = new ChromeDriver();
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--headless");
-            WebDriver driver = new ChromeDriver(options);
+            driver = new ChromeDriver(options);
             driver.manage().window().maximize();
             Thread.sleep(2000);
         }
