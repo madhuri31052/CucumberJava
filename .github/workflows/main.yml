@@ -60,8 +60,8 @@ jobs:
 
       - name: run behave file
         env: 
-          Username : ${{ secrets.USERNAME }}
-          Password : ${{ secrets.PASSWORD }}
+          username : ${{ secrets.USERNAME }}
+          password : ${{ secrets.PASSWORD }}
         run: |
             ./gradlew cucumber
 

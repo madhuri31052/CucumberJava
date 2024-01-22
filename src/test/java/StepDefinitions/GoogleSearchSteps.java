@@ -12,8 +12,8 @@ import io.cucumber.java.en.*;
 public class GoogleSearchSteps {
 
     WebDriver driver = null;
-    private String user;
-    private String pass;
+    public String user;
+    public String pass;
 
     @Given("User is on instagram page")
     public void user_is_on_instagram_page() throws InterruptedException {
