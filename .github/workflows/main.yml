@@ -41,7 +41,7 @@ jobs:
        
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.5.4
 
       - name: Set up Java
         uses: actions/setup-java@v2
@@ -81,18 +81,17 @@ jobs:
       #     echo "Contents of /usr/local/bin: $(ls -l /usr/local/bin)"
       #     echo "PATH: $PATH"
 
-      - name: Set up Chrome
-        uses: sormuras/bach@v6
-        with:
-          scripts: 'export DEBIAN_FRONTEND=noninteractive; sudo apt-get install -yq google-chrome-stable'
+      # - name: Set up Chrome
+      #   uses: sormuras/bach@v6
+      #   with:
+      #     scripts: 'export DEBIAN_FRONTEND=noninteractive; sudo apt-get install -yq google-chrome-stable'
 
       - name: run behave file
         env: 
           USERNAME : ${{ secrets.USERNAME }}
           PASSWORD : ${{ secrets.PASSWORD }}
         run: |
-          -Dtest=TestRunner
-          mvn clean test
+          mvn clean test -Dtest=TestRunner
 
 
     # - name: run behave file
