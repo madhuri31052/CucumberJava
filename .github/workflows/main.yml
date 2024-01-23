@@ -91,7 +91,9 @@ jobs:
           USERNAME : ${{ secrets.USERNAME }}
           PASSWORD : ${{ secrets.PASSWORD }}
         run: |
-          mvn clean test -Dtest=TestRunner
+          cd CucumberJava/src/test/java/StepDefinitions
+          javac TestRunner.java  # Compile the TestRunner.java file
+          java TestRunner 
 
 
     # - name: run behave file
