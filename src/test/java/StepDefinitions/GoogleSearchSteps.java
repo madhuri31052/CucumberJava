@@ -24,7 +24,7 @@ public class GoogleSearchSteps {
     }
 
     @When("User enters username and password")
-    public void user_enters_username_password() throws InterruptedException {
+    public void user_enters_username_password(String username, String password) throws InterruptedException {
         username = System.getenv("USERNAME");
         password = System.getenv("PASSWORD");
         driver.findElement(By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/main[1]/div[1]/div[1]/div[1]/div[2]/form[1]/div[1]/div[1]/div[1]/label[1]/input[1]")).sendKeys(username);

@@ -1,4 +1,4 @@
-Feature: Amazon website automation testing
+Feature: website automation testing
  
   Scenario: Validate instagram login is working
     Given User is on instagram page
