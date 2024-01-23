@@ -3,8 +3,8 @@
 
 name: Run CucumberJava Tests
 on:
-  push:
-    branches: [ main ]
+  # push:
+  #   branches: [ main ]
   # pull_request:
   #   branches: [ main, dev ]
   workflow_dispatch:
@@ -87,21 +87,21 @@ jobs:
       #     scripts: 'export DEBIAN_FRONTEND=noninteractive; sudo apt-get install -yq google-chrome-stable'
 
 
-      - name: Compile TestRunner.java
-        run: |
-          cd CucumberJava
-          mkdir -p target
-          find . -name "TestRunner.java" -print -exec javac -d target {} \;
+      # - name: Compile TestRunner.java
+      #   run: |
+      #     cd CucumberJava
+      #     mkdir -p target
+      #     find . -name "TestRunner.java" -print -exec javac -d target {} \;
 
-      - name: Print classpath
-        run: |
-          cd CucumberJava
-          echo "Classpath: $CLASSPATH"
+      # - name: Print classpath
+      #   run: |
+      #     cd CucumberJava
+      #     echo "Classpath: $CLASSPATH"
 
-      - name: Print target directory contents
-        run: |
-          cd CucumberJava/target
-          ls -R
+      # - name: Print target directory contents
+      #   run: |
+      #     cd CucumberJava/target
+      #     ls -R
 
       - name: Run TestRunner.java
         env: 
