@@ -91,7 +91,7 @@ jobs:
         run: |
           cd CucumberJava
           mkdir -p target
-          javac -d target src/test/java/StepDefinitions/TestRunner.java
+          find . -name "TestRunner.java" -print -exec javac -d target {} \;
 
       - name: run behave file
         env: 
