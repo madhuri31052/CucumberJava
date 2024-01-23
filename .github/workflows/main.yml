@@ -90,6 +90,7 @@ jobs:
       - name: Compile TestRunner.java
         run: |
           cd CucumberJava
+          mkdir -p target
           javac -d target src/test/java/StepDefinitions/TestRunner.java
 
       - name: run behave file
