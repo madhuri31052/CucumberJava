@@ -8,26 +8,26 @@ on:
   # pull_request:
   #   branches: [ main, dev ]
   workflow_dispatch:
-    inputs:
-      environment:
-        description: ' env we wanted to run '
-        type: choice
-        options:
-           - main
-           - dev
-           - stag
-           - qa
-           - prod
-      script_name:
-        description: ' test script wanted to execute '
-        required: true
-        type: choice
-        default: 'loginPage'
-        options:
-           - login
-           - GoogleSearch
-           - resultsPage
-           - addCart
+    # inputs:
+    #   environment:
+    #     description: ' env we wanted to run '
+    #     type: choice
+    #     options:
+    #        - main
+    #        - dev
+    #        - stag
+    #        - qa
+    #        - prod
+    #   script_name:
+    #     description: ' test script wanted to execute '
+    #     required: true
+    #     type: choice
+    #     default: 'loginPage'
+    #     options:
+    #        - login
+    #        - GoogleSearch
+    #        - resultsPage
+    #        - addCart
       
 jobs:
   build:
