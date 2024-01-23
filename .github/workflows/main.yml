@@ -93,9 +93,14 @@ jobs:
           mkdir -p target
           find . -name "TestRunner.java" -print -exec javac -d target {} \;
 
+      - name: Print classpath
+        run: |
+          cd CucumberJava
+          echo "Classpath: $CLASSPATH"
+
       - name: Verify compiled classes
         run: |
-          cd CucumberJava/target
+          cd CucumberJava
           ls -R
 
       - name: run behave file
