@@ -86,13 +86,19 @@ jobs:
       #   with:
       #     scripts: 'export DEBIAN_FRONTEND=noninteractive; sudo apt-get install -yq google-chrome-stable'
 
+
+      - name: Compile TestRunner.java
+        run: |
+          cd CucumberJava
+          javac -d target src/test/java/StepDefinitions/TestRunner.java
+
       - name: run behave file
         env: 
           USERNAME : ${{ secrets.USERNAME }}
           PASSWORD : ${{ secrets.PASSWORD }}
         run: |
           cd CucumberJava
-          java -cp src/test/java StepDefinitions.TestRunner
+          java -cp target StepDefinitions.TestRunner
 
 
     # - name: run behave file
