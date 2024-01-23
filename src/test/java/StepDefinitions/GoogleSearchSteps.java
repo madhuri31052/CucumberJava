@@ -83,10 +83,9 @@ public class GoogleSearchSteps {
         if (driver == null) {
             String projectPath = System.getProperty("user.dir");
             System.setProperty("webdriver.chrome.driver", projectPath + "/src/test/resources/drivers/chromedriver");
-            //driver = new ChromeDriver();
-            ChromeOptions options = new ChromeOptions();
-            options.addArguments("--headless");
-            driver = new ChromeDriver(options);
+            // driver = new ChromeDriver();
+            WebDriverManager.chromedriver().setup();
+            driver = new ChromeDriver();
             driver.manage().window().maximize();
             Thread.sleep(2000);
         }

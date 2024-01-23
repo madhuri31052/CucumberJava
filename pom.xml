@@ -60,6 +60,12 @@
       <artifactId>junit-platform-commons</artifactId>
       <version>1.10.1</version>
     </dependency> -->
+
+    <dependency>
+      <groupId>io.github.bonigarcia</groupId>
+      <artifactId>webdrivermanager</artifactId>
+      <version>4.4.3</version> <!-- Use the latest version -->
+    </dependency>
 	   
   </dependencies>
 
