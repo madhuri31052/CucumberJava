@@ -93,6 +93,11 @@ jobs:
           mkdir -p target
           find . -name "TestRunner.java" -print -exec javac -d target {} \;
 
+      - name: Verify compiled classes
+        run: |
+          cd CucumberJava/target
+          ls -R
+
       - name: run behave file
         env: 
           USERNAME : ${{ secrets.USERNAME }}
