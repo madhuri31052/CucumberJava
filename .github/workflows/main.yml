@@ -98,12 +98,12 @@ jobs:
           cd CucumberJava
           echo "Classpath: $CLASSPATH"
 
-      - name: Verify compiled classes
+      - name: Print target directory contents
         run: |
-          cd CucumberJava
+          cd CucumberJava/target
           ls -R
 
-      - name: run behave file
+      - name: Run TestRunner.java
         env: 
           USERNAME : ${{ secrets.USERNAME }}
           PASSWORD : ${{ secrets.PASSWORD }}
