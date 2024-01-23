@@ -8,36 +8,30 @@ on:
   # pull_request:
   #   branches: [ main, dev ]
   workflow_dispatch:
-    # inputs:
-    #   environment:
-    #     description: ' env we wanted to run '
-    #     type: choice
-    #     options:
-    #        - main
-    #        - dev
-    #        - stag
-    #        - qa
-    #        - prod
-    #   script_name:
-    #     description: ' test script wanted to execute '
-    #     required: true
-    #     type: choice
-    #     default: 'loginPage'
-    #     options:
-    #        - login
-    #        - GoogleSearch
-    #        - resultsPage
-    #        - addCart
+    inputs:
+      environment:
+        description: ' env we wanted to run '
+        type: choice
+        options:
+           - main
+           - dev
+           - stag
+           - qa
+           - prod
+      script_name:
+        description: ' test script wanted to execute '
+        required: true
+        type: choice
+        default: 'loginPage'
+        options:
+           - login
+           - GoogleSearch
+           - resultsPage
+           - addCart
       
 jobs:
   build:
     runs-on: ubuntu-latest
-    # environment: ${{ github.event.inputs.environment }}
-    # container:
-    #   image: ghcr.io/strongarm-tech/satbuildmachine:latest
-    #   credentials:
-          # username: ${{ github.actor }}
-          # password: ${{ secrets.GITTOKEN }}
        
     env: 
         USERNAME : ${{ secrets.USERNAME }}
@@ -65,22 +59,7 @@ jobs:
 
 
 
-    # - name: run behave file
-    #   env:
-    #     QA_CRED_EMAIL : ${{ secrets.QA_CRED_EMAIL }}
-    #     QA_CRED_PASS : ${{ secrets.QA_CRED_PASS }}
-    #     DEV3_CRED_EMAIL : ${{ secrets.DEV3_CRED_EMAIL }}
-    #     DEV3_CRED_PASS : ${{ secrets.DEV3_CRED_PASS }}
-    #   run: |
-    #         cd Tests
-    #         case ${{ github.event.inputs.env_name }} in  
-    #         dev3)
-    #         behave -i dev3.feature
-    #         ;;
-    #         qa)
-    #         behave -i qa.feature
-    #         ;;
-    #         esac
+
 
 
     

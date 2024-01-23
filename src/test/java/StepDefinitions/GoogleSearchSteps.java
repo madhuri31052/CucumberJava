@@ -13,8 +13,8 @@ import io.cucumber.java.en.*;
 public class GoogleSearchSteps {
 
     WebDriver driver = null;
-    public String username;
-    public String password;
+    private String username;
+    private String password;
 
     @Given("User is on instagram page")
     public void user_is_on_instagram_page() throws InterruptedException {
@@ -79,7 +79,7 @@ public class GoogleSearchSteps {
         }
     }
 
-    public void initializeWebDriver() throws InterruptedException {
+    private void initializeWebDriver() throws InterruptedException {
         if (driver == null) {
             String projectPath = System.getProperty("user.dir");
             System.setProperty("webdriver.chrome.driver", projectPath + "/src/test/resources/drivers/chromedriver");
