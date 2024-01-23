@@ -22,7 +22,7 @@ on:
         description: ' test script wanted to execute '
         required: true
         type: choice
-        default: 'loginPage'
+        default: 'GoogleSearch'
         options:
            - login
            - GoogleSearch
@@ -56,6 +56,15 @@ jobs:
     
       - name: Run Cucumber Tests
         run: mvn test
+
+      - name: Generate Cucumber HTML Report
+        run: mvn verify
+
+      - name: Upload Cucumber HTML Report
+        uses: actions/upload-artifact@v2
+        with:
+          name: cucumber-reports
+          path: target/cucumber-reports/
 
 
 
