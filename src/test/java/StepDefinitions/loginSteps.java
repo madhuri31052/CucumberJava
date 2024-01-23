@@ -14,7 +14,7 @@ public class loginSteps {
 		System.out.println("User enter username and password");
 	}
 
-	@When("Clicks on login button of xyz 	website")
+	@When("Clicks on login button of xyz website")
 	public void clicks_on_login_button_xyz() {
 		System.out.println("Clicks on login button");
 	}
