@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import io.cucumber.java.After;
 import io.cucumber.java.en.*;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class GoogleSearchSteps {
 
