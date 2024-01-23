@@ -39,6 +39,11 @@ jobs:
           # username: ${{ github.actor }}
           # password: ${{ secrets.GITTOKEN }}
        
+    env: 
+        USERNAME : ${{ secrets.USERNAME }}
+        PASSWORD : ${{ secrets.PASSWORD }}   
+          
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -51,14 +56,12 @@ jobs:
 
       - name: Add execution permission to Chromedriver
         run: chmod +x /home/runner/work/CucumberJava/CucumberJava/src/test/resources/drivers/chromedriver
+
+      - name: Build with Maven
+        run: mvn clean install
     
       - name: Run Cucumber Tests
-        env: 
-            USERNAME : ${{ secrets.USERNAME }}
-            PASSWORD : ${{ secrets.PASSWORD }}
-        run: 
-            mvn clean install
-            mvn test
+        run: mvn test
 
 
 
