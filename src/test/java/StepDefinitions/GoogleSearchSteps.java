@@ -9,7 +9,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import io.cucumber.java.After;
 import io.cucumber.java.en.*;
-import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class GoogleSearchSteps {
 
@@ -84,8 +83,6 @@ public class GoogleSearchSteps {
         if (driver == null) {
             String projectPath = System.getProperty("user.dir");
             System.setProperty("webdriver.chrome.driver", projectPath + "/src/test/resources/drivers/chromedriver");
-            // driver = new ChromeDriver();
-            WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
             driver.manage().window().maximize();
             Thread.sleep(2000);
