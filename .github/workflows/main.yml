@@ -92,11 +92,7 @@ jobs:
           PASSWORD : ${{ secrets.PASSWORD }}
         run: |
           cd CucumberJava
-          mkdir -p src/test/java/StepDefinitions  # Create the directory if it doesn't exist
-          cp /path/to/your/TestRunner.java src/test/java/StepDefinitions  # Adjust the path to your TestRunner.java
-          cd src/test/java/StepDefinitions
-          javac TestRunner.java  # Compile the TestRunner.java file
-          java TestRunner        # Run the compiled TestRunner class
+          java -cp src/test/java StepDefinitions.TestRunner
 
 
     # - name: run behave file
