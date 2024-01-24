@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-import test.java.POM_Pages.InstGoogleSteps_POM;
+import POM_Pages.InstGoogleSteps_POM;
 import io.cucumber.java.After;
 import io.cucumber.java.en.*;
 
