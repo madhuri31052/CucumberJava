@@ -1,4 +1,4 @@
-package StepDefinitions;
+package test.java.StepDefinitions;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -7,14 +7,17 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+
+import POM_Pages.GoogleSearch_POM;
 import io.cucumber.java.After;
 import io.cucumber.java.en.*;
 
-public class GoogleSearchSteps {
+public class GoogleSearch_usingPOM {
 
     WebDriver driver = null;
     private String username;
     private String password;
+    GoogleSearch_POM login;
 
     @Given("User is on instagram page")
     public void user_is_on_instagram_page() throws InterruptedException {
@@ -25,17 +28,19 @@ public class GoogleSearchSteps {
 
     @When("User enters username and password")
     public void user_enters_username_password() throws InterruptedException {
-        username = System.getenv("USERNAME");
+    	username = System.getenv("USERNAME");
         password = System.getenv("PASSWORD");
-        driver.findElement(By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/main[1]/div[1]/div[1]/div[1]/div[2]/form[1]/div[1]/div[1]/div[1]/label[1]/input[1]")).sendKeys(username);
-        Thread.sleep(5000);
-        driver.findElement(By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/main[1]/div[1]/div[1]/div[1]/div[2]/form[1]/div[1]/div[2]/div[1]/label[1]/input[1]")).sendKeys(password);
-        Thread.sleep(5000);
+
+    	login.enterInstUser(username);
+    	Thread.sleep(5000);
+    	login.enterInstPass(password);
+    	Thread.sleep(5000); 
     }
 
     @And("hits login button")
     public void hits_login_button() throws InterruptedException {
-        driver.findElement(By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/main[1]/div[1]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]")).click();
+    	
+    	login.clickInstLoginBtn();  	
         Thread.sleep(5000);
     }
 
@@ -44,7 +49,6 @@ public class GoogleSearchSteps {
         driver.getPageSource().contains("Save your login info?");
         Thread.sleep(2000);
     }
-
 
 	@Given("User is on google search page")
 	public void user_is_on_google_search_page() throws InterruptedException {
@@ -55,14 +59,16 @@ public class GoogleSearchSteps {
 
 	@When("^User enters (.*) in search box of google$")
 	public void user_enters_in_search_box(String query) throws InterruptedException {
-		driver.findElement(By.name("q")).sendKeys(query);
+		
+		login.gogSearchText(query);
 		Thread.sleep(2000);
 	}
 
 	@And("hits enter button of google")
 	public void enter_button() throws InterruptedException {
-		driver.findElement(By.name("q")).sendKeys(Keys.ENTER);
-		Thread.sleep(2000);
+		
+		login.gogEnterBtn();
+        Thread.sleep(2000);
 	}
 
 	@Then("User should go to respective page of google")
@@ -81,13 +87,16 @@ public class GoogleSearchSteps {
 
     private void initializeWebDriver() throws InterruptedException {
         if (driver == null) {
-            String projectPath = System.getProperty("user.dir");
-            System.setProperty("webdriver.chrome.driver", projectPath + "/src/test/resources/drivers/chromedriver");
-            ChromeOptions options = new ChromeOptions();
+        	String projectPath = System.getProperty("user.dir");
+           	System.setProperty("webdriver.chrome.driver", projectPath + "/src/test/resources/drivers/chromedriver.exe");
+           	// driver = new ChromeDriver();
+            ChromeOptions options = new ChromeOptions();      // This 3 lines of code will help run test without display
             options.addArguments("--headless");
             driver = new ChromeDriver(options);
+           	login = new GoogleSearch_POM(driver);             // Every session new driver will be initiated 
             driver.manage().window().maximize();
             Thread.sleep(2000);
         }
     }
 }
+
