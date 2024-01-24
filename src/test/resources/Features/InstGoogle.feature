@@ -15,6 +15,6 @@ Feature: website automation testing
 
 	Examples:
 		| query |
-		|automation step by step |
+		| automation step by step |
 	
     
