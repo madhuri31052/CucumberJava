@@ -55,3 +55,5 @@ jobs:
     
       - name: Run Cucumber Tests
         run: mvn test
+        env:
+          CLASSPATH: src/test/java
