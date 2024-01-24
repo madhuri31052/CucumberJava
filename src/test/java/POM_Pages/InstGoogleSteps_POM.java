@@ -17,7 +17,7 @@ public class InstGoogleSteps_POM {
 	By gog_searchBox = By.name("q");
 	
 	
-	public GoogleSearch_POM(WebDriver driver){
+	public InstGoogleSteps_POM(WebDriver driver){
 		this.driver = driver;
 	}
 

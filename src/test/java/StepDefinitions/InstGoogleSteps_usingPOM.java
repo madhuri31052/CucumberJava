@@ -8,16 +8,17 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-import POM_Pages.GoogleSearch_POM;
+import POM_Pages.InstaGoogleSteps_POM;
 import io.cucumber.java.After;
 import io.cucumber.java.en.*;
+import test.java.POM_Pages.InstGoogleSteps_POM;
 
-public class GoogleSearch_usingPOM {
+public class InstaGoogleSteps_usingPOM {
 
     WebDriver driver = null;
     private String username;
     private String password;
-    GoogleSearch_POM login;
+    InstGoogleSteps_POM login;
 
     @Given("User is on instagram page")
     public void user_is_on_instagram_page() throws InterruptedException {
@@ -93,7 +94,7 @@ public class GoogleSearch_usingPOM {
             ChromeOptions options = new ChromeOptions();      // This 3 lines of code will help run test without display
             options.addArguments("--headless");
             driver = new ChromeDriver(options);
-           	login = new GoogleSearch_POM(driver);             // Every session new driver will be initiated 
+           	login = new InstGoogleSteps_POM(driver);             // Every session new driver will be initiated 
             driver.manage().window().maximize();
             Thread.sleep(2000);
         }
