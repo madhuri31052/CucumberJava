@@ -8,12 +8,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-import POM_Pages.InstaGoogleSteps_POM;
+import POM_Pages.InstGoogleSteps_POM;
 import io.cucumber.java.After;
 import io.cucumber.java.en.*;
-import test.java.POM_Pages.InstGoogleSteps_POM;
 
-public class InstaGoogleSteps_usingPOM {
+public class InstGoogleSteps_usingPOM {
 
     WebDriver driver = null;
     private String username;
