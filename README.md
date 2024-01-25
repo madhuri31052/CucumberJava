@@ -7,3 +7,5 @@
 # Tags are used in TestRunner file. tags are used with "or", "and", "and not"
 
 # Tags can be applied to Features, Scenarios, Examples but not to Background, Given, When, Then
+
+# Hooks are implemented in the scripts. Step Hooks, Scenario Hooks, Conditional Hooks
