@@ -88,7 +88,7 @@ public class InstGoogleSteps_usingPOM {
     private void initializeWebDriver() throws InterruptedException {
         if (driver == null) {
         	String projectPath = System.getProperty("user.dir");
-           	System.setProperty("webdriver.chrome.driver", projectPath + "/src/test/resources/drivers/chromedriver.exe");
+           	System.setProperty("webdriver.chrome.driver", projectPath + "/src/test/resources/drivers/chromedriver");
            	// driver = new ChromeDriver();
             ChromeOptions options = new ChromeOptions();      // This 3 lines of code will help run test without display
             options.addArguments("--headless");
