@@ -3,8 +3,8 @@
 
 name: Working CucumberJava Tests
 on:
-  push:
-    branches: [ main ]
+  # push:
+  #   branches: [ main ]
   # pull_request:
   #   branches: [ main, dev ]
   workflow_dispatch:
@@ -22,10 +22,10 @@ on:
         description: ' test script wanted to execute '
         required: true
         type: choice
-        default: 'GoogleSearch'
+        default: 'InstGoogle'
         options:
            - login
-           - GoogleSearch
+           - InstGoogle
            - resultsPage
            - addCart
       
