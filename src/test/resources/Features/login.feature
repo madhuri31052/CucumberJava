@@ -1,5 +1,6 @@
 Feature: feature to test login functionality
-
+  
+  @smokeTests @regressionTests
   Scenario: Check login successful with valid credentials
     Given User is on login page of xyz website
     When User enters username and password of xyz website

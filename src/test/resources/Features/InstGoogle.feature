@@ -1,5 +1,6 @@
 Feature: website automation testing
  
+  @smokeTests
   Scenario: Validate instagram login is working
     Given User is on instagram page
     When User enters username and password
@@ -7,6 +8,7 @@ Feature: website automation testing
     Then User should go to respective results page
 
  # This is to understand step parameters
+  @regressionTests
   Scenario Outline: Validate google search is working
     Given User is on google search page
     When User enters <query> in search box of google

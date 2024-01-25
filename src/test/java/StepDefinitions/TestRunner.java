@@ -10,7 +10,8 @@ import org.junit.runner.RunWith;
     features = "src/test/resources/Features/",
     glue = {"StepDefinitions", "POM_Pages"},
     monochrome = true,
-    plugin = {"pretty", "html:target/cucumber-reports"}
+    tags = "@smokeTests and @regressionTests"
+    // plugin = {"pretty", "html:target/cucumber-reports"}
 )
 public class TestRunner {
 
