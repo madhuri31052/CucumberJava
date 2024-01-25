@@ -10,6 +10,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import POM_Pages.InstGoogleSteps_POM;
 import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.*;
 
 public class InstGoogleSteps_usingPOM {
@@ -83,6 +84,11 @@ public class InstGoogleSteps_usingPOM {
         	driver.close();
             driver.quit();
         }
+    }
+
+    @Before
+    public void BeforeSteps() {
+        System.out.println("I am inside before step, which is running before every scenario");
     }
 
     private void initializeWebDriver() throws InterruptedException {
