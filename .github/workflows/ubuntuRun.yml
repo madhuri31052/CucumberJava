@@ -1,10 +1,10 @@
 # This workflow will install Python dependencies, run tests and lint with a variety of Python versions
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
 
-name: Working CucumberJava Tests
+name: CucumberJava Tests on ubuntu
 on:
-  push:
-    branches: [ main ]
+  # push:
+  #   branches: [ main ]
   # pull_request:
   #   branches: [ main, dev ]
   workflow_dispatch:
@@ -49,9 +49,6 @@ jobs:
 
       - name: Add execution permission to Chromedriver
         run: chmod +x /home/runner/work/CucumberJava/CucumberJava/src/test/resources/drivers/chromedriver
-
-      # - name: Build with Maven
-      #   run: mvn clean install
     
       - name: Run Cucumber Tests
         run: mvn test
