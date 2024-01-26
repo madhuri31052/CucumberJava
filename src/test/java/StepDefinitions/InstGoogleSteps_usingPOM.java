@@ -95,10 +95,10 @@ public class InstGoogleSteps_usingPOM {
         if (driver == null) {
         	String projectPath = System.getProperty("user.dir");
            	System.setProperty("webdriver.chrome.driver", projectPath + "/src/test/resources/drivers/chromedriver");
-           	driver = new ChromeDriver();
-            // ChromeOptions options = new ChromeOptions();      // This 3 lines of code will help run test without display
-            // options.addArguments("--headless");
-            // driver = new ChromeDriver(options);
+           	// driver = new ChromeDriver();
+            ChromeOptions options = new ChromeOptions();      // This 3 lines of code will help run test without display
+            options.addArguments("--headless");
+            driver = new ChromeDriver(options);
            	login = new InstGoogleSteps_POM(driver);             // Every session new driver will be initiated 
             driver.manage().window().maximize();
             Thread.sleep(2000);
