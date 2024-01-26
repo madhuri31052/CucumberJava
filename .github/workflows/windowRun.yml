@@ -44,12 +44,19 @@ jobs:
           distribution: 'adopt'
           java-version: '8.0.222'
 
-      - name: Set up ChromeDriver v78.0
+      # - name: Set up ChromeDriver v78.0
+      #   run: |
+      #     Invoke-WebRequest -Uri 'https://chromedriver.storage.googleapis.com/78.0.3904.97/chromedriver_win32.zip' -OutFile 'chromedriver_win32.zip'
+      #     Expand-Archive -Path 'chromedriver_win32.zip' -DestinationPath 'C:\tools'
+      #     [System.Environment]::SetEnvironmentVariable('PATH', "$env:PATH;C:\tools", [System.EnvironmentVariableTarget]::Machine)
+      #     $env:webdriver.chrome.driver = 'C:\tools\chromedriver.exe'
+
+      - name: Set up ChromeDriver
         run: |
-          Invoke-WebRequest -Uri 'https://chromedriver.storage.googleapis.com/78.0.3904.97/chromedriver_win32.zip' -OutFile 'chromedriver_win32.zip'
-          Expand-Archive -Path 'chromedriver_win32.zip' -DestinationPath 'C:\tools'
-          [System.Environment]::SetEnvironmentVariable('PATH', "$env:PATH;C:\tools", [System.EnvironmentVariableTarget]::Machine)
-          $env:webdriver.chrome.driver = 'C:\tools\chromedriver.exe'
+            wget https://chromedriver.storage.googleapis.com/78.0.3904.97/chromedriver_linux64.zip
+            unzip chromedriver_linux64.zip
+            sudo mv chromedriver /usr/local/bin/
+            sudo chmod +x /usr/local/bin/chromedriver
 
       - name: Set up Chrome
         uses: actions/setup-chrome@v2
