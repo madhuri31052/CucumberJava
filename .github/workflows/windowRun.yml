@@ -52,7 +52,7 @@ jobs:
           $env:webdriver.chrome.driver = 'C:\tools\chromedriver.exe'
 
       - name: Set up Chrome
-        uses: sarvesh-only/actions/setup-chrome@v2
+        uses: actions/setup-chrome@v2
 
       - name: Run Cucumber Tests
         run: mvn test
