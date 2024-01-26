@@ -1,5 +1,9 @@
 name: CucumberJava Tests on windows
 on:
+  push:
+    branches: [ main ]
+  # pull_request:
+  #   branches: [ main, dev ]
   workflow_dispatch:
     inputs:
       environment:
